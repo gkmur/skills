@@ -10,50 +10,26 @@ description: >
 
 # repo-triage
 
-Maintainer-facing queue review for a single repo. Output is URL-first: every
-item leads with its GitHub link so Gabe can click straight through. Triage one
-repo unless told "broad", "all", or given multiple repos.
+Maintainer-facing queue review for one repo (unless told "broad", "all", or given several). Output is URL-first: every item leads with its GitHub link.
 
 ## Gates before any local work
 
-- Checkout is on `main`, pull is clean, worktree has no uncommitted changes.
-  If not, stop and report - do not mutate Gabe's working tree.
-- Read `VISION.md` / `README.md` / `CLAUDE.md` if present to set the product-fit
-  baseline.
-- Treat Gabe's own comments on an issue/PR as authoritative routing.
+- Checkout is on `main`, pull is clean, worktree has no uncommitted changes. If not, stop and report; do not mutate Gabe's working tree.
+- Read `VISION.md` / `README.md` / `CLAUDE.md` if present for the product-fit baseline.
+- Gabe's own comments on an issue or PR are authoritative routing.
 
-## Gather the queue
+## Gather
 
-Use `gh` against the repo's remote:
-- `gh issue list` (open issues, newest + most-reacted),
-- `gh pr list` (open PRs, draft vs ready, mergeable state),
-- `gh run list` / `gh pr checks` (CI status for the default branch and PR heads),
-- changelog / latest tag vs `main` to spot unreleased changes.
+Use `gh` against the remote for open issues, open PRs (draft vs ready, mergeable), CI on the default branch and PR heads, and the changelog or latest tag vs `main` for unreleased changes. For a no-remote repo, triage the working tree and git log (dirty state, stale branches, TODO/FIXME density, failing local checks).
 
-For no-remote local repos, triage the working tree and git log instead: dirty
-state, stale branches, TODO/FIXME density, failing local checks.
+## Classify
 
-## Classify each item
+Give each item a one-line read: why it matters, author trust (factual: account age, activity, prior contributions), product fit, risk low/medium/high with blast radius, proof state (bugs need repro or logs, features an end-to-end plan, security changes code-path validation), blockers, next action. Then sort:
 
-Give each item a one-line structured read: why it matters, author trust, product
-fit, risk + blast radius, proof/test state, blockers, next action. Then sort:
-
-1. **Autonomous** - fixable without Gabe's input: bugs with a clear repro, docs,
-   narrow tests, low-risk cleanup, dependency bumps that pass CI.
-2. **Needs Gabe** - blocked on his decision, missing credentials, security
-   judgment, unclear product direction, or anything not yet decision-ready.
-3. **Defer / close / supersede** - stale, duplicate, or overlapped by other work.
-
-Trust read is factual: account age, repo activity, prior contributions. Risk is
-low/medium/high with explicit blast-radius reasoning. Proof bar varies: bugs need
-repro/logs, features need an end-to-end test plan, security changes need
-code-path validation.
+1. **Autonomous**: fixable without Gabe (clear-repro bugs, docs, narrow tests, low-risk cleanup, dependency bumps passing CI).
+2. **Needs Gabe**: his decision, missing credentials, security judgment, unclear direction, not yet decision-ready.
+3. **Defer / close / supersede**: stale, duplicate, or overlapped.
 
 ## Autonomous mode
 
-When told to "work autonomously", process autonomous-eligible items in order:
-implement the smallest correct fix, verify locally and end-to-end, run
-`/code-review` before committing, get CI green, post test evidence, open the PR.
-Never push to `main`, never release. Return to clean `main` and continue until
-the autonomous queue is empty or you hit a blocker - then report it and stop.
-
+Only when told to "work autonomously": for each autonomous item, implement the smallest correct fix, verify locally and end-to-end, run `/code-review` before committing, get CI green, post test evidence, open the PR. Never push to `main`, never release. Return to clean `main` and continue until the queue is empty or a blocker appears, then report and stop.

@@ -1,5 +1,5 @@
 # skills - CLAUDE.md
-> Dev checkout of the `gkmur/skills` plugin marketplace (registered under marketplace name `gkmur`; renamed from `claude-skills` 2026-06-11). Each subdirectory of `plugins/` is a published plugin. Three remain: `adhd`, `moodboard`, and `maintainer-orchestrator` (skill dir `gabe-repo-triage`).
+> Dev checkout of the `gkmur/skills` plugin marketplace (registered under marketplace name `gkmur`; renamed from `claude-skills` 2026-06-11). Each subdirectory of `plugins/` is a published plugin. Two remain: `moodboard` and `maintainer-orchestrator` (skill dir `gabe-repo-triage`).
 
 ## Two-path workflow
 Iterate fast locally; publish to the marketplace only when shipping to other people / the cloud.
@@ -19,7 +19,6 @@ npm run release -- <plugin...|--all> [--minor|--major]   # default: patch
 
 ## Architecture
 - `plugins/` - one subdirectory per plugin; each contains a `SKILL.md` (the skill prompt) and any supporting assets
-- `plugins/adhd/` - shapes output for an ADHD reader (next action first, numbered steps, restated state)
 - `plugins/moodboard/` - Pinterest-mirror moodboard tool (requires local wiki + qmd MCP)
 - `plugins/maintainer-orchestrator/` - per-repo GitHub queue triage (`gabe-repo-triage`)
 
