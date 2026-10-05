@@ -61,11 +61,11 @@ const accent = [...uniq].sort((a, b) => saturation(b) - saturation(a))[0];
 const roles = {};
 roles.bg = bg;
 roles.ink = ink;
-// surface: a mid-luminance color that isn't bg or ink; else skip
-const mids = byLum.filter((h) => h !== bg && h !== ink);
-if (mids.length) roles.surface = mids[Math.floor((mids.length - 1) / 2)];
 // accent: only if it adds a distinct, reasonably saturated color
 if (accent && accent !== bg && accent !== ink && saturation(accent) > 0.15) roles.accent = accent;
+// surface: a mid-luminance color that isn't bg, ink or the accent; else skip
+const mids = byLum.filter((h) => h !== bg && h !== ink && h !== roles.accent);
+if (mids.length) roles.surface = mids[Math.floor((mids.length - 1) / 2)];
 
 const tokens = {
   $schema: "https://design-tokens.github.io/community-group/format/",

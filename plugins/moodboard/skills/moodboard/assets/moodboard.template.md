@@ -1,6 +1,10 @@
 # Moodboard - <project / feature name>
 
-Generated <date> from the user's reference library at influence level <strict | guided | ambient>. The brief is the durable artifact; the references are the receipts.
+Generated <date> from the user's references at influence level <strict | guided | ambient>, for <medium>.
+
+## The bet
+
+<one line: which references drive, and what this combination bets on>
 
 ## References
 
@@ -34,6 +38,6 @@ Generated <date> from the user's reference library at influence level <strict | 
 {}
 ```
 
-## Next step
+## Principles check
 
-Feed this to the build directly, or to /design-consultation, /design-shotgun, v0, or Figma variables. Tool-agnostic on purpose.
+<which of the user's principles applied, and any close call one of them decided; "none written yet" when the section is empty>

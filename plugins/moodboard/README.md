@@ -20,9 +20,12 @@ applies it to what you build: a UI, a brand, a deck, an image prompt.
 ## Step by step
 
 **1. Setup (once, ~2 minutes of your time)**
-Point it at your references. Image folders, a Pinterest export, a screenshots dump -
-subfolders become collections. It reads them and writes your taste profile to
-`~/.claude/moodboard/taste-profile.md`. You can open and edit that file anytime.
+Point it at your references. Image folders, a Pinterest export, a screenshots dump,
+albums from a photo library. You can give it several sources, and subfolders become
+collections. It reads them and writes your taste profile to
+`~/.claude/moodboard/taste-profile.md`. It also asks for your principles, the values
+your work should hold to, and writes them down in your words. You can open and edit
+that file anytime. Say **"refresh my moodboard"** after your library grows.
 
 **2. Ask for something**
 No commands, no config. Just build something and mention your taste:
@@ -67,7 +70,12 @@ This is why one image feeds many builds. A Raf bomber photo gives a landing page
 negative space, a deck its photography style, a product its material honesty. The
 attributes transfer; the artifact does not.
 
-**6. You get the work, or a brief**
+**6. Ask for options and it combines your references more than one way**
+Say **"show me a few ways"** and you get two or three combinations. Each uses
+different driving references or a different mix of moves, and each is named by what
+it bets on. Anything that breaks one of your principles is dropped.
+
+**7. You get the work, or a brief**
 During a build, the influence lands directly in the code or prompt. Ask for a brief
 and it writes `MOODBOARD.md`: driving references with links, the design DNA, and a
 W3C design-tokens block for Figma, CSS, or v0.
