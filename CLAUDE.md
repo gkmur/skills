@@ -28,7 +28,7 @@ npm run release -- <plugin...|--all> [--minor|--major]   # default: patch
 ## Gotchas
 - **Local dev does NOT need `/plugin update`.** After `npm run dev-link`, the plugin skills are file-based symlinks in `~/.claude/skills` and hot-reload on edit. `/plugin update` only matters for *consumers* (other people, or you on claude.ai/Cowork) after `npm run release`.
 - After `release`, the installed plugin still needs `/plugin marketplace update gkmur` + `/plugin update` to refresh — the registry reads the GitHub repo on update; symlinking the plugin cache does not work (it gets clobbered).
-- `moodboard` is local-only (needs the wiki MCP / Pinterest shadow at `~/wiki/raw/pinterest/`); it fails silently elsewhere — keep that in mind before listing it as broadly installable.
+- `moodboard` is local-only (needs the wiki MCP / Pinterest shadow at `~/projects/wiki/raw/pinterest/`); it fails silently elsewhere — keep that in mind before listing it as broadly installable.
 - There is no CI/CD. Skills are plain markdown prompt files; `scripts/` are the only code.
 
 <!-- written at be7fcb6, 2026-06-10 -->

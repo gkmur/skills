@@ -20,7 +20,7 @@ Steers AWAY from applying Pretext to plain body text (browser native is equivale
 
 ### moodboard
 
-Pulls visual inspiration from a local Pinterest mirror (`~/wiki/raw/pinterest/`) via the qmd MCP. Surfaces 3 curated pin candidates with thumbnail previews, lets you pick/refine, then extracts design DNA (palette, type, texture, composition, motion) into `MOODBOARD.md` as input for design-consultation, frontend-design, or design-shotgun.
+Pulls visual inspiration from a local Pinterest mirror (`~/projects/wiki/raw/pinterest/`) via the qmd MCP. Surfaces 3 curated pin candidates with thumbnail previews, lets you pick/refine, then extracts design DNA (palette, type, texture, composition, motion) into `MOODBOARD.md` as input for design-consultation, frontend-design, or design-shotgun.
 
 Local-only: requires the Pinterest shadow and qmd MCP server.
 
